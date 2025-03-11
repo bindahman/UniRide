@@ -20,6 +20,15 @@ app.get("/", function(req, res) {
         {'title':'My index page', 'heading':'Welcom to UniRide'});
 });
 
+app.get("/all-Rides", function(req, res) {
+    res.send("xxx"); 
+    var sql = 'select * from Rides';
+    db.query(sql).then(results => {
+        console.log(results);
+        res.send(results)
+    });     
+});
+
 app.get("/signup", (req, res) => {
     res.render("signup"); // Render the signup page
 });
