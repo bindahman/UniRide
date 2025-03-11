@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title
+    style.
+      body {
+          display: flex;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          background-color: #f5f5f5;
+          margin: 0;
+          font-family: Arial, sans-serif;
+      }
+      .container {
+          text-align: center;
+          background-color: #fff;
+          padding: 40px;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          width: 100%;
+          max-width: 350px;
+      }
+      .profile-image {
+          width: 120px;
+          height: 120px;
+          margin: 20px auto;
+      }
+      .login-form {
+          margin-top: 20px;
+          text-align: left;
+      }
+      .login-form label {
+          display: block;
+          margin: 8px 0 5px;
+      }
+      .login-form input {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      .login-btn {
+          background-color: #4CAF50;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 100%;
+          transition: background 0.3s;
+      }
+      .login-btn:hover {
+          background-color: #45a049;
+      }
+      .signup-link {
+          margin-top: 15px;
+          display: block;
+          text-decoration: underline;
+          color: #007BFF;
+          cursor: pointer;
+      }
+
+  body
+    .container
+      h2= heading
+      img.profile-image(src="/images/uniride-logo.jpg" alt="UniRide Logo") 
+      form.login-form
+        label(for="login") Login
+        input(type="text" id="login" placeholder="Enter your login")
+
+        label(for="password") Password
+        input(type="password" id="password" placeholder="Enter your password")
+
+        button.login-btn(type="submit") Login
+
+      a.signup-link(href="/signup") Does not have an account?
+

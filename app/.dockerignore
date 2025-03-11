@@ -1,0 +1,24 @@
+.git
+node_modules
+npm-debug.log
+# Ignore node_modules to prevent unnecessary large files in Docker context
+node_modules
+
+# Ignore Git repository files
+.git
+.gitignore
+
+# Ignore logs and temporary files
+logs
+*.log
+tmp
+*.swp
+
+# Ignore OS-specific system files
+.DS_Store
+Thumbs.db
+
+# Ignore development tools/config
+.vscode
+.idea
+.env

@@ -1,0 +1,92 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Sign Up - UniRide
+    style.
+      body {
+          display: flex;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          background-color: #f5f5f5;
+          margin: 0;
+          font-family: Arial, sans-serif;
+      }
+      .container {
+          text-align: center;
+          background-color: #fff;
+          padding: 40px;
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+          width: 100%;
+          max-width: 350px;
+      }
+      .profile-image {
+          width: 100px;
+          height: 100px;
+          background-color: #d3d3d3;
+          border-radius: 50%;
+          margin: 20px auto;
+          border: 3px solid #bbb;
+      }
+      .signup-form {
+          margin-top: 20px;
+          text-align: left;
+      }
+      .signup-form label {
+          display: block;
+          margin: 8px 0 5px;
+      }
+      .signup-form input, .signup-form select {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+      .signup-btn {
+          background-color: #4CAF50;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          cursor: pointer;
+          width: 100%;
+          transition: background 0.3s;
+      }
+      .signup-btn:hover {
+          background-color: #45a049;
+      }
+      .login-link {
+          margin-top: 15px;
+          display: block;
+          text-decoration: underline;
+          color: #007BFF;
+          cursor: pointer;
+      }
+
+  body
+    .container
+      h2 Sign Up
+      img.profile-image(src="/static/images/uniride-logo.png" alt="Profile Image")
+      form.signup-form(method="POST" action="/signup")
+        label(for="username") User Name
+        input(type="text" id="username" name="username" placeholder="Enter your name" required)
+
+        label(for="role") Role
+        select(id="role" name="role" required)
+          option(value="driver") Driver
+          option(value="passenger") Passenger
+
+        label(for="uni-id") University ID
+        input(type="text" id="uni-id" name="uniId" placeholder="Enter your Uni ID" required)
+
+        button.signup-btn(type="submit") Sign Up
+         
+
+      a.login-link(href="/") Already have an account? Log in
+      a.signup-link(href="/profile") Sign Up
+      
+          
