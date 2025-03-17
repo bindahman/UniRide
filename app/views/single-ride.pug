@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title Ride Details - UniRide
+    link(rel='stylesheet', href='/styles/main.css')
+  body
+    header
+      a(href='/all-rides') Back to Rides
+    h1 Ride Details
+    table
+      tr
+        th Ride ID
+        td #{ride.id}
+      tr
+        th Driver
+        td #{ride.driver}
+      tr
+        th User
+        td #{ride.user}
+      tr
+        th Ride Type
+        td #{ride.ride_type}
+      tr
+        th Pickup
+        td #{ride.pickup}
+      tr
+        th Dropoff
+        td #{ride.dropoff}
+      tr
+        th Entertainment
+        td #{ride.entertainment}

@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title All Rides - UniRide
+    link(rel='stylesheet', href='/styles/main.css')
+  body
+    header
+      a(href='/') Back to Home
+    h1 Available Rides
+    if rides && rides.length
+      table
+        thead
+          tr
+            th Ride ID
+            th Pickup
+            th Dropoff
+            th Entertainment
+            th Type
+        tbody
+          each ride in rides
+            tr
+              td: a(href='/single-ride/' + ride.id) #{ride.id}
+              td #{ride.pickup}
+              td #{ride.dropoff}
+              td #{ride.entertainment}
+              td #{ride.type_name}
+    else
+      p No rides available at the moment.
