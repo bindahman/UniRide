@@ -1,0 +1,342 @@
+/* ==========================
+   Global Styling (Applies to All Pages)
+============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* ==========================
+   Header & Navigation
+============================= */
+header {
+    background: #0b6623;
+    padding: 15px 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #c3f07d;
+}
+
+/* ==========================
+   Hero Section (Home Page)
+============================= */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+    color: rgb(9, 87, 19);
+}
+
+.hero h1 {
+    font-size: 40px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.button {
+    display: inline-block;
+    background: #0b6623;
+    color: white;
+    padding: 12px 24px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: #08581e;
+}
+
+/* ==========================
+   About Page
+============================= */
+.about-container {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+
+.feature-card {
+    text-align: center;
+    width: 30%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+/* ==========================
+   Contact Page
+============================= */
+.contact-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.contact-item {
+    text-align: center;
+}
+
+.contact-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.contact-form {
+    margin-top: 40px;
+    background: #eef6ee;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    margin: auto;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #0b6623;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #08581e;
+}
+
+/* ==========================
+   All Rides Page
+============================= */
+/* ==========================
+   All Rides Page Styling
+============================= */
+.all-rides-container {
+    width: 90%;
+    margin: 80px auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    color: #0b6623;
+    margin-bottom: 20px;
+}
+
+.back-home {
+    display: inline-block;
+    background: #0b6623;
+    color: white;
+    padding: 10px 15px;
+    margin: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.back-home:hover {
+    background: #08581e;
+}
+
+/* Improved Table Design */
+.ride-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.ride-table thead {
+    background: #0b6623;
+    color: white;
+    font-size: 18px;
+}
+
+.ride-table th, .ride-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.ride-table tr:nth-child(even) {
+    background: #eef6ee;
+}
+
+.ride-table tr:hover {
+    background: #dff0d8;
+    transition: 0.3s;
+}
+
+/* Link Styling */
+.ride-table a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0b6623;
+    transition: color 0.3s ease-in-out;
+}
+
+.ride-table a:hover {
+    text-decoration: underline;
+    color: #064420;
+}
+
+
+/* ==========================
+   Footer
+============================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0b6623;
+    color: white;
+    margin-top: 40px;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #2e642e;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #2e642e;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+td a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Ride Details Table */
+.ride-details {
+    width: 60%;
+    margin-top: 30px;
+}
+
+.ride-details th {
+    text-align: right;
+    width: 40%;
+    padding-right: 15px;
+    font-weight: bold;
+}
+
+.ride-details td {
+    width: 60%;
+}

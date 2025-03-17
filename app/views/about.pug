@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title About Us - UniRide
+    link(rel='stylesheet', href='/styles/main.css')
+  body
+    header
+      nav
+        ul
+          li: a(href='/') Home
+          li: a(href='/all-rides') Rides
+          li: a(href='/drivers') Drivers
+          li: a(href='/contact') Contact
+    main.about-container
+      .hero-section
+        h1 About UniRide
+        p We are committed to providing a sustainable, safe, and reliable ride-sharing experience. UniRide is built for students, professionals, and everyday commuters looking for a hassle-free and eco-conscious way to travel.
+
+      .features
+        .feature-card
+          img(src='/images/safety.png', alt='Safety First')
+          h3 Safety First
+          p Our drivers are verified and trained to ensure the highest safety standards.
+
+        .feature-card
+          img(src='/images/eco-friendly.png', alt='Eco-Friendly Rides')
+          h3 Eco-Friendly Rides
+          p Supporting green transportation with hybrid and electric vehicle options.
+
+        .feature-card
+          img(src='/images/convenience.png', alt='Convenience')
+          h3 Seamless Experience
+          p Easy ride booking with real-time tracking and multiple payment options.
+
+      .cta
+        h2 Ready to Ride with Us?
+        p Join UniRide today and experience the next generation of ride-sharing!
+        a.button(href='/all-rides') Get Started

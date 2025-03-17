@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title Contact Us - UniRide
+    link(rel='stylesheet', href='/styles/main.css')
+  body
+    header
+      nav
+        ul
+          li: a(href='/') Home
+          li: a(href='/all-rides') Rides
+          li: a(href='/drivers') Drivers
+          li: a(href='/about') About
+    main.contact-container
+      h1 Get in Touch with Us
+      p Have questions, feedback, or need support? Reach out to us anytime!
+
+      .contact-info
+        .contact-item
+          img(src='/images/phone-icon.png', alt='Phone')
+          h3 Call Us
+          p 📞 +123 456 7890
+
+        .contact-item
+          img(src='/images/email-icon.png', alt='Email')
+          h3 Email Us
+          p 📩 support@uniride.com
+
+        .contact-item
+          img(src='/images/location-icon.png', alt='Location')
+          h3 Visit Us
+          p 📍 123 Greenway Drive, London, UK
+
+      .contact-form
+        h2 Send Us a Message
+        form(action='/send-message', method='POST')
+          label(for='name') Name
+          input(type='text', name='name', required)
+
+          label(for='email') Email
+          input(type='email', name='email', required)
+
+          label(for='message') Message
+          textarea(name='message', required)
+
+          button(type='submit') Send Message

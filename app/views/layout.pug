@@ -1,5 +1,155 @@
-html 
-    head 
-        title Title here... 
-    body 
-        block content 
+// layout.pug (Main Layout for all pages)
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title UniRide - #{title}
+    link(rel="stylesheet" href="/styles.css")
+  body
+    header
+      nav
+        ul
+          li: a(href="/") Home
+          li: a(href="/about") About Us
+          li: a(href="/services") Services
+          li: a(href="/all-rides") Rides
+          li: a(href="/drivers") Drivers
+          li: a(href="/contact") Contact Us
+    block content
+    footer
+      p &copy; 2025 UniRide - All Rights Reserved.
+
+// index.pug (Home Page)
+extends layout
+block content
+  section.hero
+    h1 Welcome to UniRide
+    p Your safe and convenient ride-sharing platform.
+    a(href="/all-rides" class="btn") Book a Ride
+
+// all-rides.pug
+extends layout
+block content
+  h1 All Available Rides
+  if rides.length
+    table
+      thead
+        tr
+          th Ride ID
+          th Pickup
+          th Dropoff
+          th Entertainment
+          th Type
+      tbody
+        each ride in rides
+          tr
+            td: a(href="/single-ride/#{ride.id}") #{ride.id}
+            td #{ride.pickup}
+            td #{ride.dropoff}
+            td #{ride.entertainment}
+            td #{ride.type}
+  else
+    p No rides available.
+
+// single-ride.pug
+extends layout
+block content
+  h1 Ride Details
+  table
+    tr
+      th Ride ID
+      td #{ride.id}
+    tr
+      th Driver
+      td #{ride.driver}
+    tr
+      th User
+      td #{ride.user}
+    tr
+      th Type
+      td #{ride.type}
+    tr
+      th Pickup
+      td #{ride.pickup}
+    tr
+      th Dropoff
+      td #{ride.dropoff}
+    tr
+      th Entertainment
+      td #{ride.entertainment}
+
+// drivers.pug
+extends layout
+block content
+  h1 All Drivers
+  table
+    thead
+      tr
+        th Driver ID
+        th Name
+    tbody
+      each driver in drivers
+        tr
+          td: a(href="/single-driver/#{driver.id}") #{driver.id}
+          td #{driver.name}
+
+// single-driver.pug
+extends layout
+block content
+  h1 Driver Details
+  table
+    tr
+      th Driver ID
+      td #{driver.id}
+    tr
+      th Name
+      td #{driver.name}
+  h2 Assigned Rides
+  if rides.length
+    table
+      thead
+        tr
+          th Ride ID
+          th Pickup
+          th Dropoff
+          th Type
+      tbody
+        each ride in rides
+          tr
+            td: a(href="/single-ride/#{ride.id}") #{ride.id}
+            td #{ride.pickup}
+            td #{ride.dropoff}
+            td #{ride.type}
+  else
+    p No rides assigned.
+
+// about.pug
+extends layout
+block content
+  h1 About UniRide
+  p UniRide is dedicated to providing reliable ride-sharing services for students and professionals.
+
+// services.pug
+extends layout
+block content
+  h1 Our Services
+  ul
+    li Standard Rides
+    li VIP Rides
+    li Motorcycle Rides
+    li 7-Seater Rides
+    li Eco-Friendly Rides
+
+// contact.pug
+extends layout
+block content
+  h1 Contact Us
+  form(action="/send-message" method="POST")
+    label(for="name") Name:
+    input(type="text" name="name" required)
+    label(for="email") Email:
+    input(type="email" name="email" required)
+    label(for="message") Message:
+    textarea(name="message" required)
+    button(type="submit") Send
