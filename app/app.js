@@ -1,7 +1,7 @@
 // Import express.js
 const express = require("express");
 
-// Create express app. h
+// Create express app.h
 var app = express();
 
 // Add static files location .
@@ -79,17 +79,17 @@ app.get("/all-drivers", (req, res) => {
 
 
 
-// About Page
+// About Page for website            
 app.get("/about", (req, res) => {
     res.render("about");
 });
 
-// Services Page
+// Services Page for website
 app.get("/services", (req, res) => {
     res.render("services");
 });
 
-// Contact Page
+// Contact Page for website
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
