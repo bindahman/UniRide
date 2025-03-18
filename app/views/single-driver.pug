@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title Driver Details - UniRide
+    link(rel='stylesheet', href='/styles/main.css')
+  body
+    header
+      a(href='/all-drivers') Back to Drivers
+    h1 Driver Profile
+    table
+      tr
+        th Driver ID
+        td #{driver.id}
+      tr
+        th Name
+        td #{driver.name}

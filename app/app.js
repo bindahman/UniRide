@@ -77,6 +77,21 @@ app.get("/all-drivers", (req, res) => {
         });
 });
 
+app.get("/single-driver/:id", (req, res) => {
+    var driverId = req.params.id;
+    var sql = `SELECT id, name FROM Drivers WHERE id = ?`;
+
+    db.query(sql, [driverId]).then(results => {
+        if (results.length > 0) {
+            res.render("single-driver", { driver: results[0] });
+        } else {
+            res.send("<h2 style='color: red;'>Driver not found.</h2>");
+        }
+    }).catch(err => {
+        console.error(err);
+        res.send("<h2 style='color: red;'>Error retrieving driver details.</h2>");
+    });
+});
 
 
 // About Page
