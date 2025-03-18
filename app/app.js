@@ -7,7 +7,7 @@ var app = express();
 // Add static files location .
 app.use(express.static("static"));
 
-// Get the functions in the db.js file to use
+// Get the functions in the db.js file to use. 
 const db = require('./services/db');
 
 //Use the Pug templating engine 
