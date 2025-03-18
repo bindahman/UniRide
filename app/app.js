@@ -1,7 +1,7 @@
 // Import express.js
 const express = require("express");
 
-// Create express app
+// Create express app. h
 var app = express();
 
 // Add static files location
