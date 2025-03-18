@@ -4,7 +4,7 @@ const express = require("express");
 // Create express app. h
 var app = express();
 
-// Add static files location
+// Add static files location .
 app.use(express.static("static"));
 
 // Get the functions in the db.js file to use
