@@ -5,6 +5,8 @@ html
     link(rel='stylesheet', href='/styles/main.css')
   body
     header
+      .logo-container
+        img(src='/images/logo.png', alt='UniRideLogo', class='logo')
       nav
         ul
           li: a(href='/') Home
@@ -12,22 +14,36 @@ html
           li: a(href='/all-drivers') Drivers
           li: a(href='/about') About
           li: a(href='/contact') Contact
+
     section.hero
       h1 Welcome to UniRide
       p Connecting you with safe and reliable ride-sharing services.
       a.button(href='/all-rides') Browse Rides
 
-    section.services
-    h2 Our Services
-    .grid
-        if services && services.length
-            each service in services
-                .service
-                    img(src=service.image, alt=service.name)
-                    h3 #{service.name}
-        else
-            p No services available at the moment.
+  section.weather
+  h2 Live Weather Update
+  form(action='/weather', method='POST')
+    label(for='city') Enter your city:
+    input(type='text', name='city', required placeholder='e.g., London')
+    button(type='submit') Get Weather
+  if weatherError
+    p(style='color: red') #{weatherError}
+  else if weather
+    p Temperature: #{weather.temp}°C
+    p Description: #{weather.description}
+    p City: #{weather.city}
 
+
+    section.services
+      h2 Our Services
+      .grid
+        if services && services.length
+          each service in services
+            .service
+              img(src=service.image, alt=service.name)
+              h3 #{service.name}
+        else
+          p No services available at the moment.
 
     footer
       p &copy; 2025 UniRide. All rights reserved.

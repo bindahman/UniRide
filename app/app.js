@@ -1,5 +1,10 @@
+const axios = require('axios');
+
+
 // Import express.js
 const express = require("express");
+
+
 
 // Create express app
 var app = express();
@@ -16,6 +21,29 @@ app.set('views', './app/views');
 
 // Create a route for root - /
 
+//APi
+app.post("/weather", express.urlencoded({ extended: true }), async (req, res) => {
+    const city = req.body.city;
+    const apiKey = "40a1e811b4cdb2824e33b66ecb5e4696";
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    try {
+        const response = await axios.get(url);
+        const weather = {
+            temp: response.data.main.temp,
+            description: response.data.weather[0].description,
+            city: response.data.name
+        };
+
+        // Re-render the index.pug page with weather data
+        res.render("index", { weather, services: [] }); // Pass services if you have them
+    } catch (error) {
+        let weatherError = "Invalid city name. Please try again.";
+        res.render("index", { weatherError, services: [] });
+    }
+});
+
+  
 
 // Home Page
 app.get("/", (req, res) => {
@@ -31,6 +59,9 @@ app.get("/", (req, res) => {
 
 
 
+
+
+
 app.get("/all-rides", (req, res) => {
     db.query("SELECT r.*, t.name AS type_name FROM Rides r JOIN Type t ON r.type_id = t.id")
     .then(results => {
@@ -41,7 +72,7 @@ app.get("/all-rides", (req, res) => {
         res.render("all-rides", { rides: [] });
     });
 });
-
+  
 
 app.get("/single-ride/:id", (req, res) => {
     var rideId = req.params.id;
@@ -66,16 +97,22 @@ app.get("/single-ride/:id", (req, res) => {
 
 
 app.get("/all-drivers", (req, res) => {
-    var sql = "SELECT * FROM Drivers";
-    db.query(sql)
-        .then(results => {
-            res.render("all-drivers", { drivers: results });
-        })
-        .catch(err => {
-            console.error("Database Error:", err);
-            res.render("all-drivers", { drivers: [] });
+    var sql = 'SELECT * FROM Drivers';
+    db.query(sql).then(results => {
+        // Add fake static ratings manually (for demo purposes)
+        const driversWithRatings = results.map((driver, index) => {
+            const ratings = ['\u2B50\u2B50\u2B50\u2B50\u2B50', // ⭐⭐⭐⭐⭐
+                '\u2B50\u2B50\u2B50\u2B50',      // ⭐⭐⭐⭐
+                '\u2B50\u2B50\u2B50',            // ⭐⭐⭐
+                '\u2B50\u2B50\u2B50\u2B50\u2B50',
+                '\u2B50\u2B50\u2B50'];
+           driver.rating = ratings[index % ratings.length]; // Rotate ratings
+            return driver;
         });
+        res.render("all-drivers", { drivers: driversWithRatings });
+    });
 });
+
 
 app.get("/single-driver/:id", (req, res) => {
     var driverId = req.params.id;
@@ -93,6 +130,19 @@ app.get("/single-driver/:id", (req, res) => {
     });
 });
 
+//RatingDriver
+app.post("/rate-driver/:id", express.urlencoded({ extended: true }), (req, res) => {
+    const driverId = req.params.id;
+    const rating = parseInt(req.body.rating);
+
+    const insertSql = `INSERT INTO Ratings (driver_id, rating) VALUES (?, ?)`;
+    db.query(insertSql, [driverId, rating]).then(() => {
+        res.redirect("/single-driver/" + driverId);
+    });
+});
+
+
+  
 
 // About Page
 app.get("/about", (req, res) => {
@@ -110,6 +160,7 @@ app.get("/contact", (req, res) => {
 });
 
 
+  
 
 
 
@@ -125,6 +176,18 @@ app.get("/db_test", function(req, res) {
     });
 });
 
+//message
+app.post("/send-message", express.urlencoded({ extended: true }), (req, res) => {
+    const { name, email, message } = req.body;
+  
+    // You can store this in a database or send via email
+    console.log("Message received:", { name, email, message });
+  
+    // Simple feedback
+    res.send(`<h2>Thank you, ${name}! Your message has been received.</h2>
+              <p><a href="/">Go back to homepage</a></p>`);
+  });
+  
 
 
 // Create a dynamic route for /hello/<name>, where name is any value provided by user

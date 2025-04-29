@@ -9,25 +9,31 @@
 }
 
 body {
+    font-family: Arial, sans-serif;
     background-color: #f8f9fa;
-    color: #2c3e50;
-    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding-top: 160px; /* Added to avoid nav/logo overlap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* ==========================
    Header & Navigation
 ============================= */
 header {
-    background: #0b6623;
-    padding: 15px 20px;
+    background-color: #0b6623;
+    width: 100%;
+    padding: 20px 0 0 0;
     text-align: center;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 nav ul {
     list-style: none;
@@ -340,3 +346,59 @@ td a:hover {
 .ride-details td {
     width: 60%;
 }
+
+td {
+    font-size: 16px;
+}
+
+td:nth-child(3) {
+    color: #f4c430; /* gold stars */
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    height: 80px;
+    max-width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+}
+
+  
+
+section.weather {
+    background-color: #e9f7ec;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  section.weather h2 {
+    color: #2e7d32;
+  }
+  
+  section.weather p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .weather input, .weather button {
+    padding: 10px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  

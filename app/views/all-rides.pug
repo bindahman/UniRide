@@ -4,11 +4,10 @@ html
     title All Rides - UniRide
     link(rel='stylesheet', href='/styles/main.css')
   body
-    header
-      a(href='/') Back to Home
-    h1 Available Rides
-    if rides && rides.length
-      table
+    .all-rides-container
+      a.back-home(href='/') Back to Home
+      h1 Available Rides
+      table.ride-table
         thead
           tr
             th Ride ID
@@ -24,5 +23,3 @@ html
               td #{ride.dropoff}
               td #{ride.entertainment}
               td #{ride.type_name}
-    else
-      p No rides available at the moment.

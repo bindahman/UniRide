@@ -4,13 +4,40 @@ html
     title Driver Details - UniRide
     link(rel='stylesheet', href='/styles/main.css')
   body
-    header
-      a(href='/all-drivers') Back to Drivers
-    h1 Driver Profile
-    table
-      tr
-        th Driver ID
-        td #{driver.id}
-      tr
-        th Name
-        td #{driver.name}
+    header.navbar
+      nav
+        ul
+          li: a(href='/') Home
+          li: a(href='/all-rides') All Rides
+          li: a(href='/all-drivers') Drivers
+          li: a(href='/about') About
+          li: a(href='/contact') Contact
+
+    main.container
+      h1 Driver Profile
+
+      table.profile-table
+        tr
+          th Driver ID
+          td #{driver.id}
+        tr
+          th Name
+          td #{driver.name}
+        tr
+          th Average Rating
+          td #{avgRating} ⭐
+
+      h2 Rate This Driver
+      form(action='/rate-driver/' + driver.id, method='POST', class='rating-form')
+        label(for='rating') Select Rating:
+        select(name='rating', required)
+          option(value='') Select
+          option(value='1') 1
+          option(value='2') 2
+          option(value='3') 3
+          option(value='4') 4
+          option(value='5') 5
+        button(type='submit') Submit Rating
+
+    footer
+      p &copy; 2025 UniRide. All rights reserved.

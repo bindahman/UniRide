@@ -12,8 +12,10 @@ html
         tr
           th Driver ID
           th Name
+          th Last Rating
       tbody
         each driver in drivers
           tr
             td #{driver.id}
             td: a(href='/single-driver/' + driver.id) #{driver.name}
+            td #{driver.rating}
