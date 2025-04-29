@@ -6,10 +6,10 @@ const express = require("express");
 
 
 
-// Create express app
+// Create express app.h
 var app = express();
 
-// Add static files location
+// Add static files location .
 app.use(express.static("static"));
 
 // Get the functions in the db.js file to use
@@ -45,7 +45,7 @@ app.post("/weather", express.urlencoded({ extended: true }), async (req, res) =>
 
   
 
-// Home Page
+// Home Page for website
 app.get("/", (req, res) => {
     var sql = "SELECT * FROM Services";  // Ensure this matches your database table name
 
@@ -144,17 +144,17 @@ app.post("/rate-driver/:id", express.urlencoded({ extended: true }), (req, res) 
 
   
 
-// About Page
+// About Page for website            
 app.get("/about", (req, res) => {
     res.render("about");
 });
 
-// Services Page
+// Services Page for website
 app.get("/services", (req, res) => {
     res.render("services");
 });
 
-// Contact Page
+// Contact Page for website
 app.get("/contact", (req, res) => {
     res.render("contact");
 });
